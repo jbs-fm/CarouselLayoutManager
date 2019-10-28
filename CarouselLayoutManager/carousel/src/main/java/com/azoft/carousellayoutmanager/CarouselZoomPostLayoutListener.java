@@ -27,6 +27,6 @@ public class CarouselZoomPostLayoutListener implements CarouselLayoutManager.Pos
             translateY = 0;
         }
 
-        return new ItemTransformation(scale, scale, translateX, translateY);
+        return new ItemTransformation(scale, scale, translateX, translateY, null, null);
     }
 }
