@@ -12,8 +12,11 @@ import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.ScaleAnimation;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -464,6 +467,14 @@ public class CarouselLayoutManager extends RecyclerView.LayoutManager implements
         } else {
             view.layout(Math.round(start + transformation.mTranslationX), Math.round(top + transformation.mTranslationY),
                     Math.round(end + transformation.mTranslationX), Math.round(bottom + transformation.mTranslationY));
+
+            if (transformation.mPivotX != null) {
+                view.setPivotX(transformation.mPivotX);
+            }
+
+            if (transformation.mPivotY != null) {
+                view.setPivotY(transformation.mPivotY);
+            }
 
             view.setScaleX(transformation.mScaleX);
             view.setScaleY(transformation.mScaleY);
